@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>for my jaan ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Great+Vibes&family=Pinyon+Script&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --rose: #ffbdd5;
+      --rose-deep: #e8899b;
+      --cream: #fff5f0;
+      --glass-bg: rgba(255,255,255,0.04);
+      --glass-border: rgba(255,200,210,0.12);
+      --glow: rgba(255,182,193,0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #050305;
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::-webkit-scrollbar { width: 4px; }
+    body::-webkit-scrollbar-track { background: transparent; }
+    body::-webkit-scrollbar-thumb {
+      background: rgba(255,182,193,0.25);
+      border-radius: 10px;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    .ambient {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .ambient-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(180,60,90,0.12), transparent 70%);
+      top: -200px; left: -200px;
+      animation: driftA 18s ease-in-out infinite alternate;
+    }
+    .ambient-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(255,150,180,0.08), transparent 70%);
+      bottom: 10%; right: -150px;
+      animation: driftB 22s ease-in-out infinite alternate;
+    }
+
+    @keyframes driftA {
+      to { transform: translate(80px, 120px); }
+    }
+    @keyframes driftB {
+      to { transform: translate(-60px, -80px); }
+    }
+
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 1;
+      top: 0; left: 0;
+      pointer-events: none;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      color: rgba(255, 182, 193, 0.35);
+      animation: floatHeart 10s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes floatHeart {
+      0%   { transform: translateY(0) rotate(0deg) scale(1); opacity: 0; }
+      15%  { opacity: 1; }
+      85%  { opacity: 0.6; }
+      100% { transform: translateY(-110vh) rotate(360deg) scale(0.5); opacity: 0; }
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 100px 6%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .container {
+      max-width: 860px;
+      width: 100%;
+    }
+
+    .intro {
+      text-align: center;
+      position: relative;
+    }
+
+    .intro-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255,182,193,0.5);
+      margin-bottom: 28px;
+      animation: fadeSlideUp 1.5s ease both;
+    }
+
+    .intro h1 {
+      font-size: clamp(3.8rem, 10vw, 7rem);
+      font-family: 'Great Vibes', cursive;
+      line-height: 1.1;
+      color: #fff;
+      animation: fadeSlideUp 1.8s ease 0.2s both;
+      text-shadow: 0 0 80px rgba(255,182,193,0.3), 0 0 160px rgba(255,100,130,0.1);
+    }
+
+    .intro-divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--rose), transparent);
+      margin: 32px auto;
+      animation: fadeSlideUp 2s ease 0.4s both;
+    }
+
+    .intro p {
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      line-height: 2.3;
+      color: rgba(255,255,255,0.65);
+      font-weight: 300;
+      animation: fadeSlideUp 2s ease 0.6s both;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .enter-btn {
+      margin-top: 56px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 44px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,182,193,0.2);
+      background: rgba(255,182,193,0.06);
+      color: rgba(255,255,255,0.75);
+      cursor: pointer;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      backdrop-filter: blur(20px);
+      transition: all 0.5s ease;
+      animation: fadeSlideUp 2.2s ease 0.8s both;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .enter-btn:hover {
+      transform: translateY(-3px);
+      background: rgba(255,182,193,0.12);
+      border-color: rgba(255,182,193,0.4);
+      color: white;
+      box-shadow: 0 20px 60px rgba(255,100,130,0.12);
+    }
+
+    .enter-btn span {
+      display: inline-block;
+      transition: transform 0.4s ease;
+    }
+
+    .enter-btn:hover span {
+      transform: translateX(4px);
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: rgba(255,182,193,0.4);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .title {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin-bottom: 60px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      color: #fff;
+      text-align: center;
+      letter-spacing: 0.02em;
+      text-shadow: 0 0 40px rgba(255,182,193,0.2);
+    }
+
+    .archive-intro {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .archive-intro h2 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-family: 'Great Vibes', cursive;
+      color: #fff;
+      text-shadow: 0 0 60px rgba(255,182,193,0.25);
+    }
+
+    .archive-intro p {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.12em;
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    @media(max-width:600px) {
+      .archive-grid { grid-template-columns: 1fr; }
+    }
+
+    .archive-card {
+      position: relative;
+      padding: 28px 28px 24px;
+      border-radius: 20px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(20px);
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      overflow: hidden;
+      text-decoration: none;
+      display: block;
+    }
+
+    .archive-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 60% 40%, rgba(255,182,193,0.08), transparent 65%);
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .archive-card:hover::before { opacity: 1; }
+
+    .archive-card:hover {
+      transform: translateY(-6px) scale(1.015);
+      border-color: rgba(255,182,193,0.28);
+      box-shadow: 0 24px 60px rgba(255,80,120,0.1), 0 0 0 1px rgba(255,182,193,0.08);
+    }
+
+    .archive-card-num {
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255,182,193,0.4);
+      margin-bottom: 10px;
+    }
+
+    .archive-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #ffd6e7;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .archive-card p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.06em;
+    }
+
+    .archive-card-arrow {
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%) translateX(0);
+      color: rgba(255,182,193,0.3);
+      font-size: 1rem;
+      transition: all 0.4s ease;
+    }
+
+    .archive-card:hover .archive-card-arrow {
+      transform: translateY(-50%) translateX(5px);
+      color: rgba(255,182,193,0.7);
+    }
+
+    .letter-section {
+      border-top: 1px solid rgba(255,182,193,0.06);
+    }
+
+    .letter-inner {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .message {
+      position: relative;
+      padding: 44px 44px;
+      border-radius: 28px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(30px);
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      line-height: 2.3;
+      color: rgba(255,255,255,0.78);
+      font-weight: 300;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.23,1,0.32,1);
+      box-shadow: 0 4px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .message::before {
+      content: '♡';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #050305;
+      padding: 0 16px;
+      color: rgba(255,182,193,0.4);
+      font-size: 1rem;
+    }
+
+    .message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media(max-width:600px) {
+      .message { padding: 32px 24px; }
+    }
+
+    .timeline {
+      margin-top: 56px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tl-card {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 20px 28px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,182,193,0.08);
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 1s ease, transform 1s ease, background 0.3s, border 0.3s;
+    }
+
+    .tl-card.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .tl-card:hover {
+      background: rgba(255,182,193,0.06);
+      border-color: rgba(255,182,193,0.18);
+    }
+
+    .tl-date {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.6rem;
+      color: var(--rose);
+      min-width: 120px;
+    }
+
+    .tl-line {
+      width: 1px;
+      height: 28px;
+      background: rgba(255,182,193,0.2);
+      flex-shrink: 0;
+    }
+
+    .tl-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.08em;
+    }
+
+    .ending {
+      text-align: center;
+      padding: 120px 6%;
+    }
+
+    .ending-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: rgba(255,182,193,0.35);
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeSlideUp 1.5s ease 0.3s both;
+    }
+
+    .ending-dates {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.2s ease 0.3s, transform 1.2s ease 0.3s;
+    }
+
+    .ending-dates.show { opacity: 1; transform: translateY(0); }
+
+    .ending-date-pill {
+      padding: 10px 22px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,182,193,0.15);
+      color: rgba(255,182,193,0.55);
+      font-size: 0.82rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      letter-spacing: 0.08em;
+      background: rgba(255,182,193,0.03);
+      transition: all 0.4s;
+    }
+
+    .ending-date-pill:hover {
+      border-color: rgba(255,182,193,0.35);
+      color: var(--rose);
+      background: rgba(255,182,193,0.07);
+    }
+
+    .final-love-wrap {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+      transition: opacity 1.8s ease 0.5s, transform 1.8s cubic-bezier(0.23,1,0.32,1) 0.5s;
+    }
+
+    .final-love-wrap.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .final-love {
+      font-size: clamp(2.8rem, 9vw, 6rem);
+      font-family: 'Pinyon Script', cursive;
+      color: #fff;
+      line-height: 1.3;
+      text-shadow:
+        0 0 40px rgba(255,182,193,0.5),
+        0 0 100px rgba(255,100,130,0.25),
+        0 0 200px rgba(255,50,100,0.1);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { text-shadow: 0 0 40px rgba(255,182,193,0.5), 0 0 100px rgba(255,100,130,0.25); }
+      50% { text-shadow: 0 0 60px rgba(255,182,193,0.7), 0 0 140px rgba(255,100,130,0.4), 0 0 240px rgba(255,50,100,0.15); }
+    }
+
+    .final-sub {
+      margin-top: 20px;
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,182,193,0.3);
+    }
+
+    .nav-dots {
+      position: fixed;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 100;
+    }
+
+    .nav-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(255,182,193,0.25);
+      cursor: pointer;
+      transition: all 0.4s ease;
+      border: none;
+    }
+
+    .nav-dot.active, .nav-dot:hover {
+      background: rgba(255,182,193,0.7);
+      transform: scale(1.5);
+    }
+
+    @media(max-width:768px) {
+      .nav-dots { display: none; }
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.23,1,0.32,1);
+    }
+
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    audio { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="ambient ambient-1"></div>
+<div class="ambient ambient-2"></div>
+<div class="hearts"></div>
+<nav class="nav-dots" id="navDots"></nav>
+
+<audio autoplay loop>
+  <source src="stuck-on-the-puzzle.mp3" type="audio/mpeg">
+</audio>
+
+<!-- INTRO -->
+<section class="intro" id="sec-intro" data-label="intro">
+  <div class="container">
+    <div class="intro-eyebrow">a love letter ♡</div>
+    <h1>for my jaan ♡</h1>
+    <div class="intro-divider"></div>
+    <p>
+      hiiiiiii babyyyyy ♡ <br>
+      i made something for you. <br>
+      i hope you like it. <br>
+      i love you so much my jaan ♡.
+    </p>
+    <button class="enter-btn" onclick="scrollToSection('sec-archive')">
+      enter ♡ <span>→</span>
+    </button>
+  </div>
+</section>
+
+<!-- LETTER ARCHIVE -->
+<section id="sec-archive" data-label="letters">
+  <div class="container">
+    <div class="archive-intro reveal">
+      <h2>letters for you ♡</h2>
+      <p>tap any letter to read it ♡</p>
+    </div>
+
+    <div class="archive-grid">
+      <a class="archive-card reveal" onclick="scrollToSection('sec-letter-1')" href="#sec-letter-1">
+        <div class="archive-card-num">letter i</div>
+        <h3>the day we started talking</h3>
+        <p>the first letter ♡</p>
+        <span class="archive-card-arrow">→</span>
+      </a>
+
+      <a class="archive-card reveal" onclick="scrollToSection('sec-letter-2')" href="#sec-letter-2">
+        <div class="archive-card-num">letter ii</div>
+        <h3>the day we met</h3>
+        <p>the second letter ♡</p>
+        <span class="archive-card-arrow">→</span>
+      </a>
+
+      <a class="archive-card reveal" onclick="scrollToSection('sec-letter-3')" href="#sec-letter-3">
+        <div class="archive-card-num">letter iii</div>
+        <h3>the first kiss</h3>
+        <p>the third letter ♡</p>
+        <span class="archive-card-arrow">→</span>
+      </a>
+
+      <a class="archive-card reveal" onclick="scrollToSection('sec-letter-4')" href="#sec-letter-4">
+        <div class="archive-card-num">letter iv</div>
+        <h3>the way you love me</h3>
+        <p>the fourth letter ♡</p>
+        <span class="archive-card-arrow">→</span>
+      </a>
+
+      <a class="archive-card reveal" onclick="scrollToSection('sec-letter-5')" href="#sec-letter-5">
+        <div class="archive-card-num">letter v</div>
+        <h3>you</h3>
+        <p>the fifth letter ♡</p>
+        <span class="archive-card-arrow">→</span>
+      </a>
+
+      <a class="archive-card reveal" onclick="scrollToSection('sec-letter-6')" href="#sec-letter-6">
+        <div class="archive-card-num">letter vi</div>
+        <h3>us</h3>
+        <p>the last letter ♡</p>
+        <span class="archive-card-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LETTER 1 -->
+<section class="letter-section" id="sec-letter-1" data-label="i">
+  <div class="container">
+    <div class="letter-inner">
+      <div class="section-label reveal">letter i</div>
+      <h2 class="title reveal">the day we started talking</h2>
+      <div class="message">
+        I have NEVER in my life been so hooked on somebody right after the first conversation. I was so impressed and drooling all over you as soon as we started talking and that will never stop. It was all so random but i am so grateful that we met. I wouldve never imagined myself to start talking to somebody on whatsapp and so randomly with zero context(except for how extremely hot you are), but im so fucking glad that i let go of all that and i was completely myself since day 1. I knew i was FUCKED as soon as i woke up the next day and i started getting restless cause you didnt text me. I've never felt that way for anybody, i just missed you somehow after ONE conversation. THANKYOU RISHABH.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LETTER 2 -->
+<section class="letter-section" id="sec-letter-2" data-label="ii">
+  <div class="container">
+    <div class="letter-inner">
+      <div class="section-label reveal">letter ii</div>
+      <h2 class="title reveal">the day we met</h2>
+      <div class="message">
+        I WAS SO SCARED BRO WTF I WAS LIKE ABOUT TO PASS OUT A MILLION TIMES. I was so stunned bro like you are so fucking fine and YOU GOT ME LILIES?????? that was the sweetest thing ever. I was so nervous but i wanted to be nowhere else. Im again really sorry for not letting you have dinner that day but you found me cute cause of that so a win is a win. As soon as we reached naturals and i could finally look at you, bro im not even kidding i could see everything in your eyes. I could sense that this is more than just us the day we met, we've always been meant to be. I had never gotten lilies before that ever and i hope i get my last ones also from you, cause i dont want nobody else to do that for me.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LETTER 3 -->
+<section class="letter-section" id="sec-letter-3" data-label="iii">
+  <div class="container">
+    <div class="letter-inner">
+      <div class="section-label reveal">letter iii</div>
+      <h2 class="title reveal">the first kiss</h2>
+      <div class="message">
+        I was super scared to hug you or kiss you or even get physically close to you cause i was scared id mess it up and i would HATE that cause look at yourself and being the way you are with that face and that body is CRAZY. I just couldnt fumble. I anyway didnt know how to kiss you but then again you found that also cute so a win is a win. You started kissing me all over my face since the day we kissed and i love that soooooooooo fucking much it makes me feel like the most special girl ever. I love you so much for giving me that love.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LETTER 4 -->
+<section class="letter-section" id="sec-letter-4" data-label="iv">
+  <div class="container">
+    <div class="letter-inner">
+      <div class="section-label reveal">letter iv</div>
+      <h2 class="title reveal">the way you love me</h2>
+      <div class="message">
+        The way that you make me feel like im so beautiful is insane to me. I love you so much for helping me through these things and i already feel the change. I feel the most beautiful when im around you. The way that you look at me makes me fall in love with myself. You call me beautiful every single day MULTIPLE times and nobody has ever done that for me. Youre a godsend and somebody i needed for the longest time and i will never let go of this. I love you so fucking much.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LETTER 5 -->
+<section class="letter-section" id="sec-letter-5" data-label="v">
+  <div class="container">
+    <div class="letter-inner">
+      <div class="section-label reveal">letter v</div>
+      <h2 class="title reveal">you</h2>
+      <div class="message">
+        You're like the MOST selfless person ive ever met in my life, you're super forgiving and loving. I love that so much about you. The way that you are with your family and how you aspire to be with them in the future after everything you've been through is so commendable. You dont give enough credit to yourself for that. Its one of the most beautiful things about you.
+        <br><br>
+        The way that you talk about nanabba and how you do everything to make him proud is so beautiful and inspiring. I know for a fact that he's so proud of the man that you are and are becoming. I hope you see everything that he sees in you in yourself also, i'll always be here to remind you incase you forget. You are for sure his favourite cause you're always trying to work towards your betterment and his expectations. I cant wait to see you become everything nanabba will be proud of, more than he already is, inshallah.
+        <br><br>
+        You're a safe place to literally everyone around you. Your family, your friends , the babies in your family, me, literally everyone. You've always helped everyone, i've noticed that myself also. The way that your friends talk about you and how your family confides in you everytime. Everybody trusts you and knows you will always solve their problems. You are such an amazing friend, i know i've not met all of your friends but i can tell. I HOPE THEY APPROVE OF ME BRO BECAUSE I CANT LIVE WITHOUT YOU.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LETTER 6 -->
+<section class="letter-section" id="sec-letter-6" data-label="vi">
+  <div class="container">
+    <div class="letter-inner">
+      <div class="section-label reveal">letter vi</div>
+      <h2 class="title reveal">us</h2>
+
+      <div class="message">
+        I WANNA MARRY YOU SO BAD. I CANT WAIT ANY LONGER. I need to make pretty babies with you. I wanna start a family with you and i wanna watch you become the BEST dad ever. I need us to make our dream home together where we can watch our kids grow up and me getting old cause you're toh already there. Youve told me how you've always wanted to be a dad and i hope i can make that dream come true for you. I dont wanna raise my kids with anybody else but you because i trust you with everything. I love you so fucking much. Im so happy with you and i feel so special when im with you. I cant wait to start a life i completely adore with you. i love you so so so much.
+      </div>
+
+      <div class="timeline">
+        <div class="tl-card">
+          <div class="tl-date">22 march</div>
+          <div class="tl-line"></div>
+          <div class="tl-label">MY BIRTHDAY ♡</div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-date">19 april</div>
+          <div class="tl-line"></div>
+          <div class="tl-label">the day we started talking ♡</div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-date">25 april</div>
+          <div class="tl-line"></div>
+          <div class="tl-label">the day we met ♡</div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-date">30 april</div>
+          <div class="tl-line"></div>
+          <div class="tl-label">the day we kissed ♡</div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-date">2 may</div>
+          <div class="tl-line"></div>
+          <div class="tl-label">we started dating ♡</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENDING -->
+<section class="ending" id="sec-ending" data-label="♡">
+  <div class="container" style="text-align:center;">
+    <div class="ending-eyebrow reveal">always & forever</div>
+
+    <div class="ending-dates reveal">
+      <span class="ending-date-pill">19 april ♡</span>
+      <span class="ending-date-pill">25 april ♡</span>
+      <span class="ending-date-pill">30 april ♡</span>
+      <span class="ending-date-pill">2 may ♡</span>
+    </div>
+
+    <div class="final-love-wrap reveal">
+      <div class="final-love">I LOVE YOU SO MUCH MY JAAN♡.</div>
+      <div class="final-sub">always yours ♡</div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.message, .reveal, .tl-card, .ending-dates, .final-love-wrap, .ending-eyebrow').forEach(el => {
+    revealObserver.observe(el);
+  });
+
+  document.querySelectorAll('.tl-card').forEach((card, i) => {
+    card.style.transitionDelay = `${i * 0.12}s`;
+  });
+
+  document.querySelectorAll('.archive-card').forEach((card, i) => {
+    card.style.transitionDelay = `${i * 0.1}s`;
+  });
+
+  const sections = document.querySelectorAll('section[id]');
+  const navDots  = document.getElementById('navDots');
+
+  sections.forEach((sec, i) => {
+    const dot = document.createElement('button');
+    dot.classList.add('nav-dot');
+    dot.setAttribute('aria-label', sec.dataset.label || `section ${i+1}`);
+    dot.addEventListener('click', () => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    navDots.appendChild(dot);
+  });
+
+  const dots = navDots.querySelectorAll('.nav-dot');
+
+  const navObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: 0.5 });
+
+  sections.forEach(sec => navObserver.observe(sec));
+
+  const heartsContainer = document.querySelector('.hearts');
+
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = ['♡', '♡', '♡', '·'][Math.floor(Math.random() * 4)];
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (Math.random() * 16 + 8) + 'px';
+    heart.style.animationDuration = (Math.random() * 6 + 7) + 's';
+    heart.style.animationDelay = (Math.random() * 2) + 's';
+    heartsContainer.appendChild(heart);
+    setTimeout(() => heart.remove(), 14000);
+  }
+
+  setInterval(createHeart, 350);
+</script>
+
+</body>
+</html>=
